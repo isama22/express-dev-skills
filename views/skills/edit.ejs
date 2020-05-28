@@ -8,9 +8,12 @@
 <body>
     <h1>skill</h1>
     <h1><%= skill.skill %></h1>
-    <h3>complete: <%= skill.done ? 'yes' : 'no' %></h3>
-    <input type="text" name="skill">
-    <button type="submit">Save Skill</button>
+    <form action="/skills/<%= skillIdx %>?_method=PUT" method="POST" autocomplete="off">
+        <input type="text" name="skill" value="<%= skill.skill %>" >
+        <input type="checkbox" name="done" <%= skill.done ? 'checked' : '' %> >
+        <button type="submit">Save Skill</button>
+    </form>
+
 </body>
 </html>
 

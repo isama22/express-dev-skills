@@ -18,10 +18,14 @@ const deleteOne = (id) => {
   skills.splice(id, 1);
 }
 
+function update(id, skill) {
+  skills[id] = skill;
+}
 
   module.exports = {
     getAll,
     getOne,
     create,
-    deleteOne
+    deleteOne,
+    update
   };

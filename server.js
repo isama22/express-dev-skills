@@ -21,6 +21,7 @@ app.use((req, res, next) => {
 });
 
 app.use(logger('dev'));
+var methodOverride = require('method-override');
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());

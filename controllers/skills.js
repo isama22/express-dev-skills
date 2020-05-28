@@ -31,12 +31,28 @@ const deleteSkill = (req, res) => {
   res.redirect('/skills');
 }
 
+function update(req, res) {
+  // req.body.done = req.body.done === 'on';
+  // Skill.update(req.params.id, req.body);
+  // res.redirect('/skills');
+  Skill.update(req.params.id, req.body);
+  res.redirect(`/skills/${req.params.id}`);
+
+}
 
 const editSkill = (req, res) => {
+  // res.render('skills/edit', {
+  //   skill: Skill.getOne(req.params.id),
+  //   idx: req.params.id
+  var skill = Skill.getOne(req.params.id);
   res.render('skills/edit', {
-    skill: Skill.getOne(req.params.id)
+    skill,
+    skillIdx: req.params.id
+
   });
 };
+
+
 
 
 module.exports = {
@@ -45,5 +61,6 @@ module.exports = {
     newSkill,
     create,
     deleteSkill,
-    editSkill
+    editSkill,
+    update
 }
